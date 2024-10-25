@@ -5,21 +5,21 @@ date: "2024-10-21"
 output: html_document
 ---
 
-#Create a plot with iris data, Petal Width on the y-axis and Petal Length on the x-axis.
+# Create a plot with iris data, Petal Width on the y-axis and Petal Length on the x-axis.
 
-#Shapes for each Specie
+# Shapes for each Specie
 
 ```{r}
 shapes <- c("setosa" = 1, "versicolor" = 2, "virginica" = 3)
 ```
 
-#colors
+# colors
 ```{r}
 colors <- c("setosa" = "black", "versicolor" = "red", "virginica" = "green")
 ```
 
 
-#create the plot again
+# create the plot again
 ```{r}
 plot(iris$Petal.Length, iris$Petal.Width, 
                col = colors[iris$Species], 
@@ -35,24 +35,9 @@ plot(iris$Petal.Length, iris$Petal.Width,
 
 
 
-#Extra elements:
+# Extra elements:
 
-##legend
-```{r}
-plot(iris$Petal.Length, iris$Petal.Width, 
-               col = colors[iris$Species], 
-               pch = shapes[iris$Species], 
-               xlab = "Petal Length (cm)", 
-               ylab = "Petal Width (cm)", 
-               main = "Petal width vs length",
-               sub = "A refined scatter plot using base R graphics",
-               cex = 0.6,
-               cex.main = 0.9,
-               cex.sub = 1.2)
-legend("topleft", legend=c("setosa", "versicolor", "virginica"), col=c("black","red", "green", pch=12:14))
-```
-
-##Text
+## legend
 ```{r}
 plot(iris$Petal.Length, iris$Petal.Width, 
                col = colors[iris$Species], 
@@ -65,10 +50,9 @@ plot(iris$Petal.Length, iris$Petal.Width,
                cex.main = 0.9,
                cex.sub = 1.2)
 legend("topleft", legend=c("setosa", "versicolor", "virginica"), col=c("black","red", "green", pch=12:14))
-text(5,0.5, 'R= 0.96', col='black')
 ```
 
-##Diagonal line
+## Text
 ```{r}
 plot(iris$Petal.Length, iris$Petal.Width, 
                col = colors[iris$Species], 
@@ -82,7 +66,34 @@ plot(iris$Petal.Length, iris$Petal.Width,
                cex.sub = 1.2)
 legend("topleft", legend=c("setosa", "versicolor", "virginica"), col=c("black","red", "green", pch=12:14))
 text(5,0.5, 'R= 0.96', col='black')
-abline(a = 0, b = 1)
+```
+
+## Diagonal line
+
+```{r}
+plot(iris$Petal.Length, iris$Petal.Width, 
+               col = colors[iris$Species], 
+               pch = shapes[iris$Species], 
+               xlab = "Petal Length (cm)", 
+               ylab = "Petal Width (cm)", 
+               main = "Petal width vs length",
+               sub = "A refined scatter plot using base R graphics",
+               cex = 0.6,
+               cex.main = 0.9,
+               cex.sub = 1.2)
+legend("topleft", legend=c("setosa", "versicolor", "virginica"), col=c("black","red", "green", pch=12:14))
+text(5,0.5, 'R= 0.96', col='black')
+abline(a = 0, b = 1) 
+
+# check below
+# model <- lm(Petal.Width ~ Petal.Length, data = iris)
+# abline(model, col = "black", lwd = 2)
+# r2_value <- summary(model)$r.squared
+# text(5.5, 0.5, labels = paste("R = ", round(sqrt(r_value), 2)), pos = 4)
+
+
+
+
 ```
 
 
